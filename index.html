@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding in Space</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #001F3F; /* Space background color */
+            color: #FFFFFF;
+        }
+
+        #coding-box,
+        #support-box {
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        #coding-box {
+            padding: 50px;
+            background-color: #0D47A1; /* Blue color for coding box */
+        }
+
+        #support-box {
+            padding: 30px;
+            background-color: #1565C0; /* Another shade of blue for support box */
+            text-align: center;
+        }
+
+        #search-container {
+            position: relative;
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        #search-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #4285F4; /* Google blue color */
+            border-radius: 20px; /* Capsule shape */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Subtle box-shadow */
+            color: #333; /* Darker text color for better visibility */
+        }
+
+        #search-container button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background-color: #4285F4; /* Google blue color */
+            color: white;
+            border: none;
+            border-radius: 50%; /* Circular shape */
+            cursor: pointer;
+        }
+
+        #search-container button:hover {
+            background-color: #357AE8; /* Darker blue on hover */
+        }
+
+        #search-results {
+            border: 1px solid #ddd;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0); /* Initial transparency */
+            transition: background-color 0.3s ease; /* Smooth transition for visibility */
+        }
+
+        .new-code-icon {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #FFFFFF;
+            border-radius: 50%;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .code-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #808080;
+            border: 1px solid #000;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: monospace;
+            font-size: 15px;
+            color: #FFFFFF;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Add any other styling improvements here */
+
+        /* ... */
+
+    </style>
+
+    <script>
+        function openModal() {
+            var modal = document.getElementById("modal");
+            modal.style.display = "block";
+            modal.querySelector('.modal-content').focus();
+        }
+
+        function closeModal(event) {
+            if (event.target.classList.contains('close-button')) {
+                document.getElementById("modal").style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p style="font-size: 22px; text-align: center; margin-top: 10px;">CODE</p>
+    <!-- New code icon -->
+    <div class="new-code-icon">&#60;/&#62;</div>
+    <!-- Button with the code icon to open the modal -->
+    <button class="code-button" onclick="openModal()"><i class="fa fa-info-circle"></i></button>
+
+    <div id="coding-box">
+        <p style="font-size: 25px;">Learn Coding</p>
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button onclick="search()"><i class="fas fa-search"></i></button> <!-- Blue circular magnifying glass icon -->
+        </div>
+
+        <div id="search-results">
+            <!-- Search results will be inserted here -->
+        </div>
+
+        <script src="script.js"></script>
+        <!-- Add your coding information here in separate boxes -->
+        <div class="scrolling-box">Coding Info 1</div>
+        <div class="scrolling-box">Coding Info 2</div>
+        <!-- Add more boxes as needed -->
+    </div>
+
+    <div id="support-box">
+        <h2>Website Support</h2>
+        <p>About the Website, Owner, and Social Media Channels</p>
+        <p>About the Website: starting... means not only started. This website is in progress for some time, but I think it will complete any time. Please support us if you like and want fast upgrades. </p>
+        <p>Owner: hidden, I don't want to reveal my name or public information. If this website increases, I will reveal at any time. Thanks,</p>
+        <p>Social Media Channels: will be revealed in the future, to support us from that. </p>
+        <h2>Support us!</h2>
+    </div>
+
+    <div id="search-results"></div>
+
+    <!-- Modal overlay and content -->
+    <div id="modal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal(event)">X</span>
+            <div class="modal-header">
+                <h2><img class="news-icon" src="news.png" alt="News Icon">News</h2>
+            </div>
+            <p>Latest updates are <br>1) set up of modal is completed</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function (e) {
+            if (event.keyCode == 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
